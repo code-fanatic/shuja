@@ -49,7 +49,7 @@ html[data-theme="light"] textarea {
 }
 
 html { scroll-behavior: smooth; }
-* { margin: 0; padding: 0; box-sizing: border-box;}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 /* ============ SCROLL TO TOP BUTTON ============ */
 .scroll-to-top {
