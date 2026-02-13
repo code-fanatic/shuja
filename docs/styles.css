@@ -439,6 +439,8 @@ a { text-decoration: none; color: inherit;}
   transform: translateY(30px);
 }
 .project-card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 .project-card:hover {
   transform: translateY(-8px) scale(1.02);
