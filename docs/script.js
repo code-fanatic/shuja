@@ -200,3 +200,104 @@ document.querySelectorAll('h2, .hero p, .hero-buttons, .project-card, .skill-box
 
 // Initialize
 updateActiveLink();
+
+// ============ PROJECT MODAL & DATA ============
+const projectModal = document.getElementById('projectModal');
+const modalBody = document.getElementById('modalBody');
+const modalClose = document.querySelector('.modal-close');
+
+const projectsData = {
+  "portfolio": {
+    details: `
+**Overview**
+This portfolio is a showcase of modern frontend development practices. It features a glassmorphism design system, fully responsive layout, and performance optimizations.
+
+**Key Features:**
+- Dark/Light mode with local storage persistence
+- Smooth scrolling and active link highlighting
+- **Intersection Observer** for scroll animations
+- Formspree integration for contact emails
+    `
+  },
+  "todo": {
+    details: `
+**Overview**
+A minimal yet functional Todo application built with vanilla JavaScript. It focuses on CRUD operations and state management without external libraries.
+
+**Key Features:**
+- Add, edit, and delete tasks
+- Local Storage support to save data
+- Filter tasks by status (All, Active, Completed)
+- **Drag and drop** reordering (planned)
+    `
+  },
+  "weather": {
+    details: `
+**Overview**
+A real-time weather dashboard that fetches data from the OpenWeatherMap API. It handles asynchronous requests and updates the DOM dynamically.
+
+**Key Features:**
+- Search by city name
+- Displays temperature, humidity, and wind speed
+- Dynamic background based on weather conditions
+- **Error handling** for invalid city names
+    `
+  }
+};
+
+// Simple Markdown Parser
+function parseMarkdown(text) {
+  const lines = text.trim().split('\n');
+  let html = '';
+  let inList = false;
+
+  lines.forEach(line => {
+    line = line.trim();
+    // Bold formatting
+    line = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+    if (line.startsWith('- ')) {
+      if (!inList) { html += '<ul>'; inList = true; }
+      html += `<li>${line.substring(2)}</li>`;
+    } else {
+      if (inList) { html += '</ul>'; inList = false; }
+      if (line.length > 0) html += `<p>${line}</p>`;
+    }
+  });
+  if (inList) html += '</ul>';
+  return html;
+}
+
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    // Prevent opening if clicking a link inside the card
+    if (e.target.tagName === 'A') return;
+
+    const id = card.getAttribute('data-id');
+    const data = projectsData[id];
+    const title = card.querySelector('h3').innerText;
+    const img = card.querySelector('img').src;
+
+    if (data) {
+      modalBody.innerHTML = `
+        <img src="${img}" style="width:100%; height: 200px; object-fit:cover; border-radius:12px; margin-bottom:20px;">
+        <h3>${title}</h3>
+        ${parseMarkdown(data.details)}
+      `;
+      projectModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+});
+
+modalClose.addEventListener('click', () => {
+  projectModal.classList.remove('open');
+  document.body.style.overflow = '';
+});
+
+projectModal.addEventListener('click', (e) => {
+  if (e.target === projectModal) {
+    projectModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});

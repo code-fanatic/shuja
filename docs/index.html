@@ -104,7 +104,7 @@
 
     <div class="projects-grid">
 
-      <div class="project-card glass" data-tech="React">
+      <div class="project-card glass" data-tech="React" data-id="portfolio">
         <img src="images/project1.jpg" alt="Project">
         <div class="project-content">
           <h3>Portfolio Website</h3>
@@ -117,7 +117,7 @@
         </div>
       </div>
 
-      <div class="project-card glass" data-tech="JavaScript">
+      <div class="project-card glass" data-tech="JavaScript" data-id="todo">
         <img src="images/project2.jpg" alt="Project">
         <div class="project-content">
           <h3>Todo App</h3>
@@ -130,7 +130,7 @@
         </div>
       </div>
 
-      <div class="project-card glass" data-tech="API">
+      <div class="project-card glass" data-tech="API" data-id="weather">
         <img src="images/project3.600x400.jpg" alt="Project">
         <div class="project-content">
           <h3>Weather App</h3>
@@ -181,6 +181,14 @@
       <p id="formMessage" class="form-message"></p>
     </form>
   </section>
+
+  <!-- PROJECT MODAL -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close"><i class="bi bi-x-lg"></i></button>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
 
   <footer>
     © 2026 Shuja · Built with ❤️
