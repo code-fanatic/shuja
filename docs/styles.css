@@ -49,21 +49,20 @@ html[data-theme="light"] textarea {
 }
 
 html { 
-  scroll-behavior: smooth; 
-  scrollbar-color: var(--muted) var(--bg);
-  scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 /* ============ CUSTOM SCROLLBAR ============ */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: transparent; margin-block: 6px; }
 ::-webkit-scrollbar-thumb {
-  background: var(--muted);
-  border-radius: 5px;
-  border: 2px solid var(--bg);
+  background-color: var(--muted);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: content-box;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+::-webkit-scrollbar-thumb:hover { background-color: var(--primary); }
 
 /* ============ SCROLL TO TOP BUTTON ============ */
 .scroll-to-top {
@@ -633,22 +632,55 @@ footer {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
+/* Custom Animated Scrollbar for Modal */
+.modal-content::-webkit-scrollbar {
+  width: 12px;
+}
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 15px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: var(--muted);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
 .modal.open .modal-content {
   transform: translateY(0);
 }
 
 .modal-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  color: var(--muted);
-  font-size: 1.5rem;
+  top: 25px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 1.4rem;
   cursor: pointer;
-  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 2001;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
-.modal-close:hover { color: var(--text); }
+.modal-close:hover { 
+  background: #ef4444; 
+  color: white; 
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+  border-color: #ef4444;
+}
 
 .modal-body h3 { margin-bottom: 15px; color: var(--primary); }
 .modal-body ul { margin-left: 20px; margin-bottom: 15px; list-style-type: disc; }

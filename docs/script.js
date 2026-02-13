@@ -217,6 +217,11 @@ This portfolio is a showcase of modern frontend development practices. It featur
 - Smooth scrolling and active link highlighting
 - **Intersection Observer** for scroll animations
 - Formspree integration for contact emails
+
+**Technical Implementation**
+The project utilizes vanilla JavaScript for maximum performance without heavy framework overhead. CSS variables handle the theming engine, allowing for instant switching between dark and light modes. The layout relies on CSS Grid for the project cards and Flexbox for the navigation components.
+
+The modal system is custom-built to support dynamic content loading, ensuring that the DOM remains lightweight by only populating details when requested.
     `
   },
   "todo": {
@@ -229,6 +234,9 @@ A minimal yet functional Todo application built with vanilla JavaScript. It focu
 - Local Storage support to save data
 - Filter tasks by status (All, Active, Completed)
 - **Drag and drop** reordering (planned)
+
+**Future Improvements**
+Planned updates include adding a backend with Node.js to support user accounts and cloud syncing. I also plan to implement a drag-and-drop library like SortableJS to allow users to prioritize their tasks visually.
     `
   },
   "weather": {
