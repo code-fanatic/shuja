@@ -1,9 +1,32 @@
 
 // ============ ACTIVE LINK UPDATE ============
+// Cache selectors to improve performance
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.sidebar-links a');
+
+// Throttle function to limit event firing frequency
+function throttle(func, limit) {
+    let lastFunc;
+    let lastRan;
+    return function() {
+        const context = this;
+        const args = arguments;
+        if (!lastRan) {
+            func.apply(context, args);
+            lastRan = Date.now();
+        } else {
+            clearTimeout(lastFunc);
+            lastFunc = setTimeout(function() {
+                if ((Date.now() - lastRan) >= limit) {
+                    func.apply(context, args);
+                    lastRan = Date.now();
+                }
+            }, limit - (Date.now() - lastRan));
+        }
+    }
+}
+
 function updateActiveLink() {
-    const sections = document.querySelectorAll('section');
-    const links = document.querySelectorAll('.sidebar-links a');
-    
     let current = '';
     sections.forEach(section => {
     const sectionTop = section.offsetTop;
@@ -12,7 +35,7 @@ function updateActiveLink() {
     }
     });
     
-    links.forEach(link => {
+    navLinks.forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href').slice(1) === current) {
         link.classList.add('active');
@@ -53,14 +76,14 @@ document.querySelectorAll('.sidebar-links a').forEach(link => {
 // ============ SCROLL TO TOP BUTTON ============
 const scrollToTopBtn = document.getElementById('scrollToTop');
 
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', throttle(() => {
     if (window.scrollY > 300) {
-    scrollToTopBtn.classList.add('show');
+        scrollToTopBtn.classList.add('show');
     } else {
-    scrollToTopBtn.classList.remove('show');
+        scrollToTopBtn.classList.remove('show');
     }
     updateActiveLink();
-});
+}, 100));
 
 scrollToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -90,6 +113,28 @@ darkModeToggle.addEventListener('click', () => {
     }
 });
 
+// ============ REDUCE MOTION TOGGLE ============
+const reduceMotionToggle = document.getElementById('reduceMotionToggle');
+const motionIcon = reduceMotionToggle.querySelector('i');
+
+// Check saved preference
+if (localStorage.getItem('reduceMotion') === 'true') {
+    document.body.classList.add('no-animations');
+    motionIcon.className = 'bi bi-pause-circle-fill';
+}
+
+reduceMotionToggle.addEventListener('click', () => {
+    document.body.classList.toggle('no-animations');
+    
+    if (document.body.classList.contains('no-animations')) {
+        motionIcon.className = 'bi bi-pause-circle-fill';
+        localStorage.setItem('reduceMotion', 'true');
+    } else {
+        motionIcon.className = 'bi bi-play-circle-fill';
+        localStorage.setItem('reduceMotion', 'false');
+    }
+});
+
 // ============ MOBILE MENU TOGGLE ============
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const sidebar = document.querySelector('.sidebar');
@@ -110,7 +155,8 @@ filterBtns.forEach(btn => {
     const filter = btn.getAttribute('data-filter');
 
     projectCards.forEach(card => {
-        if (filter === 'all' || card.getAttribute('data-tech') === filter) {
+        const techStack = (card.getAttribute('data-tech') || '').split(' ');
+        if (filter === 'all' || techStack.includes(filter)) {
         card.style.display = 'block';
         setTimeout(() => card.classList.add('show'), 10);
         } else {

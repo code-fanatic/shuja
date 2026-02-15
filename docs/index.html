@@ -15,7 +15,10 @@
   <header class="main-header">
     <span class="logo">Portfolio</span>
     <!-- DARK MODE TOGGLE -->
-    <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">
+    <button id="reduceMotionToggle" class="reduce-motion-toggle" aria-label="Toggle Animations" data-tooltip="Toggle Animations">
+      <i class="bi bi-play-circle-fill"></i>
+    </button>
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode" data-tooltip="Toggle Dark Mode">
       <i class="bi bi-moon-stars-fill"></i>
     </button>
   </header>
@@ -100,24 +103,27 @@
       <button class="filter-btn" data-filter="React">React</button>
       <button class="filter-btn" data-filter="JavaScript">JavaScript</button>
       <button class="filter-btn" data-filter="API">API</button>
+      <button class="filter-btn" data-filter="Framework">Framework</button>
+      <button class="filter-btn" data-filter="HTML">HTML</button>
+      <button class="filter-btn" data-filter="CSS">CSS</button>
     </div>
 
     <div class="projects-grid">
-
-      <div class="project-card glass" data-tech="React" data-id="portfolio">
+      <!-- PORTFOLIO -->
+      <div class="project-card glass" data-tech="HTML CSS JavaScript Framework API" data-id="portfolio">
         <img src="images/project1.jpg" alt="Project">
         <div class="project-content">
           <h3>Portfolio Website</h3>
           <p>High-performance personal portfolio with modern UI.</p>
-          <p><strong>Tech:</strong> React, CSS</p>
+          <p><strong>Tech:</strong> HTML, CSS, Javascript, Framework, Bootstrap, API</p>
           <div class="project-links">
             <a href="https://github.com/code-fanatic/" target="_blank">Live</a>
             <a href="#">GitHub</a>
           </div>
         </div>
       </div>
-
-      <div class="project-card glass" data-tech="JavaScript" data-id="todo">
+      <!-- TODO APP -->
+      <div class="project-card glass" data-tech="JavaScript HTML CSS" data-id="todo">
         <img src="images/project2.jpg" alt="Project">
         <div class="project-content">
           <h3>Todo App</h3>
@@ -129,8 +135,8 @@
           </div>
         </div>
       </div>
-
-      <div class="project-card glass" data-tech="API" data-id="weather">
+      <!-- WEATHER APP -->
+      <div class="project-card glass" data-tech="API JavaScript HTML CSS" data-id="weather">
         <img src="images/project3.600x400.jpg" alt="Project">
         <div class="project-content">
           <h3>Weather App</h3>

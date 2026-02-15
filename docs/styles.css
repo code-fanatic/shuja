@@ -6,6 +6,8 @@
   --border: rgba(255,255,255,0.12);
   --text: #e5e7eb;
   --muted: #94a3b8;
+  --blob-1: #1e1b4b;
+  --blob-2: #0f766e;
 }
 
 /* LIGHT MODE */
@@ -17,10 +19,8 @@ html[data-theme="light"] {
   --border: rgba(15,23,42,0.1);
   --text: #1e293b;
   --muted: #64748b;
-}
-
-html[data-theme="light"] body {
-  background: linear-gradient(135deg, #f8fafc, #ede9fe);
+  --blob-1: rgba(79, 70, 229, 0.35);
+  --blob-2: rgba(8, 145, 178, 0.35);
 }
 
 html[data-theme="light"] .sidebar {
@@ -46,6 +46,43 @@ html[data-theme="light"] input,
 html[data-theme="light"] textarea {
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(15,23,42,0.1);
+}
+
+html[data-theme="light"] .sidebar-links a:hover,
+html[data-theme="light"] .sidebar-links a.active,
+html[data-theme="light"] .sidebar-links a.active i {
+  color: #ffffff;
+}
+
+html[data-theme="light"] .hero > div {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 40px rgba(30, 27, 75, 0.1);
+  border-color: rgba(79, 70, 229, 0.2);
+}
+
+html[data-theme="light"] .social-links a {
+  background: #ffffff;
+  color: var(--primary);
+  border-color: var(--border);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+html[data-theme="light"] .social-links a:hover {
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+html[data-theme="light"] .filter-btn {
+  color: var(--text);
+  background: rgba(255,255,255,0.6);
+}
+
+html[data-theme="light"] .filter-btn.active {
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: none;
 }
 
 html { 
@@ -99,7 +136,8 @@ html {
 }
 
 /* ============ DARK MODE TOGGLE ============ */
-.dark-mode-toggle {
+.dark-mode-toggle,
+.reduce-motion-toggle {
   position: absolute;
   top: 11px;
   right: 20px;
@@ -118,10 +156,67 @@ html {
   z-index: 1001;
 }
 
-.dark-mode-toggle:hover {
+.reduce-motion-toggle {
+  right: 80px;
+}
+
+.dark-mode-toggle:hover,
+.reduce-motion-toggle:hover {
   background: var(--primary);
-  transform: rotate(15deg) scale(1.1);
+  transform: scale(1.1);
   box-shadow: 0 0 20px rgba(99,102,241,0.6);
+}
+
+.dark-mode-toggle i,
+.reduce-motion-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover i,
+.reduce-motion-toggle:hover i {
+  transform: rotate(15deg);
+}
+
+html[data-theme="light"] .dark-mode-toggle,
+html[data-theme="light"] .reduce-motion-toggle,
+html[data-theme="light"] .mobile-menu-toggle,
+html[data-theme="light"] .scroll-to-top {
+  color: #ffffff;
+}
+
+/* ============ TOOLTIPS ============ */
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.9);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 1100;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  top: 125%;
+}
+
+.dark-mode-toggle[data-tooltip]::after {
+  left: auto;
+  right: 0;
+  transform: none;
 }
 
 /* ============ MOBILE MENU TOGGLE ============ */
@@ -317,8 +412,8 @@ body {
 
 body {
   font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at 15% 15%, #1e1b4b, transparent 40%),
-              radial-gradient(circle at 85% 15%, #0f766e, transparent 40%),
+  background: radial-gradient(circle at 15% 15%, var(--blob-1), transparent 40%),
+              radial-gradient(circle at 85% 15%, var(--blob-2), transparent 40%),
               var(--bg);
   background-size: 150% 150%;
   background-attachment: fixed;
@@ -331,6 +426,15 @@ body {
 @keyframes bgAnimate {
   0% { background-position: 0% 0%; }
   100% { background-position: 100% 100%; }
+}
+
+/* ============ REDUCE MOTION UTILITY ============ */
+body.no-animations *,
+body.no-animations *::before,
+body.no-animations *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
 }
 
   /* Keep overflow available without overriding themed sidebar above */
@@ -486,7 +590,7 @@ a { text-decoration: none; color: inherit;}
   padding: 10px 20px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: transparent;
+  background: var(--glass);
   color: var(--muted);
   cursor: pointer;
   font-weight: 600;
@@ -550,7 +654,7 @@ a { text-decoration: none; color: inherit;}
   padding: 10px 20px;
   border-radius: 999px;
   background: rgba(99,102,241,0.15);
-  border: 1px solid rgba(99,102,241,0.35);
+  border: 1px solid var(--border);
   color: var(--secondary);
   font-weight: 600;
   transition: all 0.3s;
@@ -760,6 +864,13 @@ h2, .hero p, .hero-buttons, .skill-box, .badge, form {
   .dark-mode-toggle {
     position: absolute;
     right: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+  
+  .reduce-motion-toggle {
+    right: 70px;
     width: 44px;
     height: 44px;
     font-size: 1rem;
