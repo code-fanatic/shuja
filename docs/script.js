@@ -272,7 +272,7 @@ The modal system is custom-built to support dynamic content loading, ensuring th
   },
   "todo": {
     details: `
-**Todo App Overview**
+**Overview**
 A functional Todo application built with vanilla JavaScript. It focuses on CRUD operations and state management with local storage. The user interface is inspired by the principles of Material Design, providing a clean and intuitive experience. The application uses a responsive layout, adapting to different screen sizes for optimal viewing on both desktop and mobile devices.
 
 **Key Features:**
