@@ -272,17 +272,16 @@ The modal system is custom-built to support dynamic content loading, ensuring th
   },
   "todo": {
     details: `
-**Overview**
-A minimal yet functional Todo application built with vanilla JavaScript. It focuses on CRUD operations and state management without external libraries.
+**Todo App Overview**
+A functional Todo application built with vanilla JavaScript. It focuses on CRUD operations and state management with local storage. The user interface is inspired by the principles of Material Design, providing a clean and intuitive experience. The application uses a responsive layout, adapting to different screen sizes for optimal viewing on both desktop and mobile devices.
 
 **Key Features:**
 - Add, edit, and delete tasks
-- Local Storage support to save data
+- Local Storage support to save and persist data
 - Filter tasks by status (All, Active, Completed)
-- **Drag and drop** reordering (planned)
-
+- Drag and drop reordering using SortableJS
 **Future Improvements**
-Planned updates include adding a backend with Node.js to support user accounts and cloud syncing. I also plan to implement a drag-and-drop library like SortableJS to allow users to prioritize their tasks visually.
+Planned updates include adding a backend with Node.js to support user accounts and cloud syncing.
     `
   },
   "weather": {
