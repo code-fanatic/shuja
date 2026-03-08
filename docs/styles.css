@@ -568,7 +568,6 @@ a { text-decoration: none; color: inherit;}
   box-shadow: 0 25px 60px rgba(0,0,0,0.45);}
 .project-card img {
   width: 100%;
-  height: 190px;
   object-fit: cover;}
 .project-content { padding: 24px;}
 .project-content h3 { margin-bottom: 10px;}

@@ -333,7 +333,7 @@ document.querySelectorAll('.project-card').forEach(card => {
 
     if (data) {
       modalBody.innerHTML = `
-        <img src="${img}" style="width:100%; height: 200px; object-fit:cover; border-radius:12px; margin-bottom:20px;">
+        <img src="${img}" style="width:100%; border: solid 2px #212433; object-fit:cover; border-radius:12px; margin-bottom:20px;">
         <h3>${title}</h3>
         ${parseMarkdown(data.details)}
       `;
