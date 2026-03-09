@@ -284,6 +284,23 @@ A functional Todo application built with vanilla JavaScript. It focuses on CRUD 
 Planned updates include adding a backend with Node.js to support user accounts and cloud syncing.
     `
   },
+  "calculator": {
+    details: `
+**Overview**
+This project is a fully functional, web-based calculator designed with a modern, dark-themed user interface. It provides a seamless user experience for performing standard arithmetic operations, featuring a clean layout and responsive interactivity suitable for both desktop and mobile environments.
+
+**Key Features:**
+- **Comprehensive Arithmetic:** Supports addition, subtraction, multiplication, division, and percentage calculations.
+- **Full Keyboard Support:** Users can input numbers and operators via keyboard, use Enter to calculate, and Backspace to correct entries.
+- **Interactive UI:** Features hover effects and active state animations (scaling) to provide visual feedback on button presses.
+- **Utility Functions:** Includes a "Clear All" (AC) feature, sign inversion (+/-), and specific handling for decimal points.
+- **Mobile Optimization:** Tap highlighting is disabled for a native app-like feel on touch devices.
+
+**Technical Implementation**
+The application is built using **Vanilla JavaScript**, ensuring maximum performance and zero dependency overhead. The logic relies on state management variables (currentOperand, previousOperand, operator) to track user input and perform calculations using floating-point arithmetic.
+**CSS Grid** is utilized to structure the button layout into a responsive 4-column grid, while Flexbox is employed to perfectly center the calculator within the viewport. The design uses specific CSS properties like transform: scale() for smooth animations and box-shadow to create depth, while event listeners handle both click and keydown events to map physical keyboard inputs to the UI controls dynamically.
+    `
+  },
   "weather": {
     details: `
 **Overview**
