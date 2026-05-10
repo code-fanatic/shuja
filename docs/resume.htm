@@ -3,115 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shuja Ahmed - Resume</title>
+  <title>Shuja - Resume</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      body {margin: 0; padding: 0;}
+      ul {list-style-position: inside;}}
+  </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<!-- For Printing
+    <body class="bg-white text-gray-800 leading-relaxed">
+    <div class="max-w-[794px] mx-auto my-6 px-6">  --> 
 
-  <div class="max-w-4xl mx-auto my-10 bg-white shadow-lg rounded-2xl p-8">
+<body class="bg-gray-100 text-gray-800 leading-relaxed">
+ <div class="max-w-4xl mx-auto my-10 bg-white shadow-lg rounded-2xl p-8">
 
-    <!-- Header -->
-    <div class="border-b pb-6 mb-6">
-      <h1 class="text-3xl font-bold text-gray-900">Shuja Ahmed</h1>
-      <p class="text-sm text-gray-600 mt-2">
-        📧 <a href="mailto:shujabutt4@gmail.com" class="text-blue-600 hover:underline">Email me</a>
-      </p>
-      <p class="text-sm text-gray-600">📍 Punjab, Pakistan</p>
-    </div>
+<div class="border-b pb-6 mb-6">
 
+  <!-- Name -->
+  <div class="text-center sm:text-left space-y-3">
+    <h1 class="text-4xl font-bold text-gray-900 tracking-tight">Shuja Ahmed</h1>
+
+  <!-- Contact Row -->
+  <div class="flex justify-between items-center text-sm text-gray-600 w-full">
+
+  <!-- Email (left) -->
+  <p class="flex items-center gap-2">📧 <a href="mailto:shujabutt4@gmail.com" class="text-blue-600 underline">Email me</a></p>
+
+  <!-- Location (right) -->
+  <p class="flex items-center gap-2">📍 Punjab, Pakistan</p>
+
+  </div>
+    <!-- Tagline -->
+    <p class="text-xs text-gray-500 italic mt-2">Software Engineer | Web Developer | Problem Solver</p>
+  </div>
+
+</div>
     <!-- About -->
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold text-gray-900 mb-2 border-b pb-1">About</h2>
+    <section class="mb-5">
+      <h2 class="text-xl font-semibold text-gray-900 mb-2 border-b">About</h2>
       <p class="text-sm leading-relaxed">
-        Passionate about developing web applications and front-end systems. Skilled at writing clear, concise code that is easy to maintain and troubleshoot.
-        Able to work independently in remote or office environments.
-      </p>
-      <p class="text-sm mt-2 leading-relaxed">
-        Enjoy building and optimizing web and software applications, always exploring new programming languages and techniques.
-      </p>
+        Passionate about developing web applications and front-end systems.
+        Skilled at writing clear, concise code that is easy to maintain and troubleshoot.
+        Able to work independently in remote or office environments.</p>
+      <p class="text-sm mt-1 leading-relaxed">
+        Enjoy building and optimizing web and software applications,
+        always exploring new programming languages and techniques.</p>
     </section>
 
     <!-- Skills -->
-    <section class="mb-6">
+    <section class="mb-5">
       <h2 class="text-xl font-semibold text-gray-900 mb-2 border-b pb-1">Skills & Abilities</h2>
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-        <li>• Web Development (HTML, CSS, JavaScript)</li>
-        <li>• Programming (C++, Kotlin)</li>
-        <li>• Fast typing speed</li>
-        <li>• Advanced computer skills</li>
-        <li>• Adaptability</li>
-        <li>• Teamwork & independent work</li>
+      <ul class="list-disc pl-6 text-sm columns-2 space-y-1">
+        <li>Web Development (HTML, CSS, JavaScript)</li>
+        <li>Programming (C++, Kotlin)</li>
+        <li>Fast typing speed</li>
+        <li>Advanced computer skills</li>
+        <li>Adaptability</li>
+        <li>Teamwork & independent work</li>
       </ul>
     </section>
 
-    <!-- Education -->
-    <section class="mb-6">
+        <!-- Education -->
+    <section class="mb-5">
       <h2 class="text-xl font-semibold text-gray-900 mb-2 border-b pb-1">Education</h2>
-      <div class="space-y-3 text-sm">
-        <div>
-          <p class="font-semibold">Bachelor of Software Engineering</p>
-          <p class="text-gray-600">Virtual University of Pakistan (2026)</p>
-        </div>
-        <div>
-          <p class="font-semibold">F.Sc Pre-Engineering</p>
-          <p class="text-gray-600">Punjab Group of Colleges, Gujranwala (2020)</p>
-        </div>
-        <div>
-          <p class="font-semibold">Matriculation Computer Science</p>
-          <p class="text-gray-600">Little Scholar Public School, Gujranwala (2018)</p>
-        </div>
-      </div>
+      <ul class="list-disc pl-6 text-sm columns-2 space-y-3">
+        <li>
+          <span class="font-semibold">Bachelor of Software Engineering</span><br>
+          <span class="text-gray-600">Virtual University of Pakistan (2026)</span>
+        </li><li>
+          <span class="font-semibold">F.Sc Pre-Engineering</span><br>
+          <span class="text-gray-600">Punjab Group of Colleges, Gujranwala (2020)</span>
+        </li><li>
+          <span class="font-semibold">Matriculation Computer Science</span><br>
+          <span class="text-gray-600">Little Scholar Public School, Gujranwala (2018)</span>
+        </li>
+      </ul>
     </section>
 
     <!-- Certifications -->
-    <section class="mb-6">
+    <section class="mb-5">
       <h2 class="text-xl font-semibold text-gray-900 mb-2 border-b pb-1">Certifications</h2>
-      <ul class="text-sm space-y-1">
-        <li>• Meta Front-End Developer - Meta (2025)</li>
-        <li>• The Bits and Bytes of Computer Networking - Google (2024)</li>
-        <li>• Technical Support Fundamentals - Google (2022)</li>
+      <ul class="list-disc pl-6 text-sm columns-2 space-y-1">
+        <li>Meta Front-End Developer - Meta (2025)</li>
+        <li>Bits & Bytes of Computer Networking - Google (2024)</li>
+        <li>Technical Support Fundamentals - Google (2022)</li>
       </ul>
     </section>
 
     <!-- Languages -->
-    <section class="mb-6">
+    <section class="mb-5">
       <h2 class="text-xl font-semibold text-gray-900 mb-2 border-b pb-1">Languages</h2>
-      <ul class="text-sm space-y-1">
-        <li>• English: Very good command</li>
-        <li>• Urdu: Native speaker</li>
+      <ul class="list-disc pl-6 text-sm columns-2 space-y-1">
+        <li>English: Very good command</li>
+        <li>Urdu: Native speaker</li>
       </ul>
     </section>
 
     <!-- Strengths -->
-    <section class="mb-6">
+    <section class="mb-5">
       <h2 class="text-xl font-semibold text-gray-900 mb-2 border-b pb-1">Personal Strengths</h2>
-      <ul class="text-sm space-y-1">
-        <li>• Hardworking and responsible</li>
-        <li>• Quick learner</li>
-        <li>• Good communication skills</li>
-        <li>• Punctual and reliable</li>
+      <ul class="list-disc pl-6 text-sm columns-2 space-y-1">
+        <li>Hardworking and responsible</li>
+        <li>Quick learner</li>
+        <li>Good communication skills</li>
+        <li>Punctual and reliable</li>
       </ul>
     </section>
 
     <!-- Links -->
     <section>
       <h2 class="text-xl font-semibold text-gray-900 mb-2 border-b pb-1">Links</h2>
-      <div class="text-sm space-y-1">
-        <a href="https://coursera.org/share/92baac960646e497a51b53fa27a99c58" target="_blank" class="text-blue-600 hover:underline">
-          Meta Front-End Certificate
-        </a><br>
-        <a href="https://coursera.org/share/02b49054455fffb21b135afdd2c5f48b" target="_blank" class="text-blue-600 hover:underline">
-          Networking Certificate
-        </a><br>
-        <a href="https://coursera.org/share/0a78eda6acc1154265b4803919101d09" target="_blank" class="text-blue-600 hover:underline">
-          Technical Support Certificate
-        </a>
-      </div>
+      <ul class="list-disc pl-6 text-sm columns-2 space-y-2">
+        <li>
+          <a href="https://coursera.org/share/92baac960646e497a51b53fa27a99c58"
+            target="_blank"
+            class="text-blue-600 hover:underline">Meta Front-End Certificate</a>
+        </li><li>
+          <a href="https://coursera.org/share/02b49054455fffb21b135afdd2c5f48b"
+            target="_blank"
+            class="text-blue-600 hover:underline">Networking Certificate</a>
+        </li><li>
+          <a href="https://coursera.org/share/0a78eda6acc1154265b4803919101d09"
+            target="_blank"
+            class="text-blue-600 hover:underline">Technical Support Certificate</a>
+        </li>
+      </ul>
     </section>
-	
+
   </div>
 </body>
 </html>
